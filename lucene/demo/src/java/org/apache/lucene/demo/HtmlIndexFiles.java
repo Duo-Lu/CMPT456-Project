@@ -32,6 +32,7 @@ import java.util.Date;
 
 import org.apache.lucene.analysis.Analyzer;
 import org.apache.lucene.analysis.standard.StandardAnalyzer;
+import org.apache.lucene.analysis.standard.CMPT456Analyzer;
 import org.apache.lucene.document.LongPoint;
 import org.apache.lucene.document.Document;
 import org.apache.lucene.document.Field;
@@ -92,9 +93,13 @@ public class HtmlIndexFiles {
       System.out.println("Indexing to directory '" + indexPath + "'...");
 
       Directory dir = FSDirectory.open(Paths.get(indexPath));
+      //InputStream streamStopWord = Files.newInputStream(aths.get(pathStopWord));
 
-      // String pathStopWord = "lucene/demo/src/resources/org/apache/lucene/demo/stopwords.txt";
-      // InputStream streamStopWord = Files.newInputStream(aths.get(pathStopWord));
+      // String pathStopWord = "lucene/demo/src/java/org/apache/lucene/demo/stopwords.txt";
+      // final Path stopWordDir = Paths.get(pathStopWord);
+      // InputStream stopWordStream = Files.newInputStream(stopWordDir);
+      // BufferedReader stopWordReader = new BufferedReader(new InputStreamReader(stopWordStream));
+      // Analyzer analyzer = new CMPT456Analyzer(stopWordReader);
 
       Analyzer analyzer = new StandardAnalyzer();
       IndexWriterConfig iwc = new IndexWriterConfig(analyzer);
